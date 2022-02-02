@@ -8,11 +8,26 @@
                 {% csrf_token %}
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Category Title</label>
-                    <input type="text" name="category title" class="form-control" id="exampleFormControlInput1"
+                    <input type="text" name="category_title" class="form-control" id="exampleFormControlInput1"
                            placeholder="Sports">
                 </div>
                 <button type="submit" class="btn btn-primary" style="float:right">Save</button>
             </form>
+            {% include 'component/message.html' %}
+            <table class="table">
+                <thead>
+                <th>category title</th>
+                <th>publish date</th>
+                </thead>
+                <tbody>
+                {% for c in categories %}
+                <tr>
+                    <td>{{c.title}}</td>
+                    <td>{{c.post_date}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         </div>
 
     </div>
